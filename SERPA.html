@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EMPRESA SERPA</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .top-bar {
+      background: #f39c12;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      font-size: 14px;
+    }
+
+    header {
+      background: linear-gradient(to right, #e90909, #4c502c);
+      color: #fff;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      background: linear-gradient(145deg, #d4af37, #f2c94c, #b8860b);
+      padding: 5px;
+      border-radius: 50%;
+      box-shadow: 0 0 25px rgba(212,175,55,0.6);
+    }
+
+    .logo-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: #ffffff;
+      padding: 15px;
+    }
+
+    .titulo-central {
+      flex: 1;
+      text-align: center;
+    }
+
+    .titulo-central h1 {
+      font-size: 38px;
+      color: #f2c200;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+
+    .titulo-central p {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #f39c12;
+    }
+
+    .section {
+      display: none;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    /* ===== INICIO (NO MODIFICADO) ===== */
+
+    #inicio {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .video-fondo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .contenido-inicio {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .contenido-inicio h2 {
+      font-size: 40px;
+      color: #fefbf0;
+      margin-bottom: 20px;
+    }
+
+    .contenido-inicio p {
+      font-size: 18px;
+      max-width: 700px;
+    }
+
+    /* ===== SERVICIOS PREMIUM ===== */
+
+    #servicios {
+      padding: 0;
+    }
+
+    .servicio-full {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+    }
+
+    .servicio-full img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .servicio-full:hover img {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+      top: 0;
+      left: 0;
+    }
+
+    .servicio-contenido {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      max-width: 700px;
+      padding: 20px;
+    }
+
+    .servicio-contenido h3 {
+      font-size: 40px;
+      color: #f2c200;
+      margin-bottom: 15px;
+    }
+
+    .servicio-contenido p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .btn-servicio {
+      background: #f39c12;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .btn-servicio:hover {
+      background: #d68910;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #1f2b38;
+      color: #bdc3c7;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: #fff;
+      font-size: 24px;
+      padding: 14px 18px;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      transition: 0.3s;
+      z-index: 1000;
+    }
+
+    .whatsapp-btn:hover {
+      background: #128c7e;
+      transform: scale(1.1);
+    }
+/* ===== DISEÑO PREMIUM SOLO PARA CATALOGO ===== */
+
+#catalogo {
+  background: linear-gradient(to right, #eef2f3, #ffffff);
+  padding: 80px 30px;
+}
+
+.maquinaria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.maquinaria-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.maquinaria-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.maquinaria-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.maquinaria-card:hover img {
+  transform: scale(1.08);
+}
+
+.maquinaria-info {
+  padding: 25px;
+  text-align: center;
+}
+
+.maquinaria-info h3 {
+  font-size: 22px;
+  color: #1f2b38;
+  margin-bottom: 10px;
+}
+
+.maquinaria-info p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.btn-maquinaria {
+  display: inline-block;
+  padding: 10px 22px;
+  background: linear-gradient(45deg, #f39c12, #d68910);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.btn-maquinaria:hover {
+  transform: scale(1.08);
+  box-shadow: 0 5px 15px rgba(243,156,18,0.5);
+}
+/* ===== GALERIA PROFESIONAL ===== */
+
+#galeria {
+  background: #f9f9f9;
+  padding: 80px 30px;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.galeria-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+.galeria-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.galeria-card:hover img {
+  transform: scale(1.1);
+}
+
+.galeria-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  transform: translateY(100%);
+  transition: 0.5s;
+}
+
+.galeria-card:hover .galeria-overlay {
+  transform: translateY(0);
+}
+
+.galeria-overlay h3 {
+  margin: 0 0 5px 0;
+  color: #f2c200;
+}
+
+.galeria-overlay p {
+  margin: 0;
+  font-size: 14px;
+}
+/* ===== CONTACTO PREMIUM ===== */
+
+#contacto {
+  background: linear-gradient(to right, #1f2b38, #2c3e50);
+  color: white;
+  padding: 80px 30px;
+}
+
+.contacto-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.contacto-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contacto-info h2 {
+  font-size: 36px;
+  color: #f2c200;
+  margin-bottom: 20px;
+}
+
+.contacto-item {
+  margin-bottom: 20px;
+}
+
+.contacto-item a {
+  color: #f39c12;
+  text-decoration: none;
+}
+
+.redes-sociales {
+  margin-top: 25px;
+}
+
+.social {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.facebook { background: #3b5998; }
+.instagram { background: #e1306c; }
+.tiktok { background: #000; }
+
+.social:hover {
+  transform: scale(1.1);
+}
+
+.contacto-form {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  color: #333;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.contacto-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #f39c12;
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contacto-form button:hover {
+  background: #d68910;
+}
+/* ===== SUMINISTRO DE MATERIALES ===== */
+
+#suministro {
+  background: linear-gradient(to right, #eef2f3, #ffffff);
+  padding: 80px 30px;
+}
+
+.materiales-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.material-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.4s;
+}
+
+.material-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.material-card:hover img {
+  transform: scale(1.1);
+}
+.material-info {
+  padding: 15px;
+  background: white;
+  text-align: center;
+}
+
+.material-info h3 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+  color: #1f2b38;
+}
+
+.material-info p {
+  font-size: 14px;
+  color: #555;
+}
+
+  </style>
+  
+  
+</head>
+
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo SERPA" class="logo-img" />
+    </div>
+
+    <div class="titulo-central">
+      <h1>EMPRESA SERPA</h1>
+      <p>Fuerza que construye tu futuro</p>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+        <li><a href="#" onclick="mostrarSeccion('servicios')">Servicios</a></li>
+          <li><a href="#" onclick="mostrarSeccion('obras')">obras</a></li>
+        <li><a href="#" onclick="mostrarSeccion('catalogo')">Alquiler de Maquinaria pesada</a></li>
+      <li><a href="#" onclick="mostrarSeccion('suministro')">Suministro de Materiales</a></li>
+
+        <li><a href="#" onclick="mostrarSeccion('contacto')">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- INICIO (SIN CAMBIOS) -->
+  <section id="inicio" class="section">
+    <video autoplay muted loop playsinline class="video-fondo">
+      <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="contenido-inicio">
+    <h2>Excelencia en Alquiler de Maquinaria Pesada</h2>
+      <h2>¡Trabajemos Juntos Para Crear Un Futuro Mejor!</h2>
+    </div>
+  </section>
+
+  <!-- SERVICIOS MEJORADO -->
+  <section id="servicios" class="section">
+
+    <div class="servicio-full">
+      <img src="https://operacioneswp.com/wp-content/uploads/2022/05/maquinaria-wp-02-1.png">
+      <div class="overlay"></div>
+      <div class="servicio-contenido">
+        <h3>Alquiler de Maquinaria Pesada</h3>
+        <p>Excavadoras, cargadores frontales y volquetes modernos para grandes proyectos.</p>
+        <a href="https://wa.me/51928599171" target="_blank" class="btn-servicio">Solicitar Cotización</a>
+      </div>
+    </div>
+
+    <div class="servicio-full">
+      <img src="https://www.unicon.com.pe/wp-content/uploads/2019/04/161109DJI_0123.jpg">
+      <div class="overlay"></div>
+      <div class="servicio-contenido">
+        <h3>Transporte de Agregados</h3>
+        <p>Transporte seguro y eficiente de arena, piedra y materiales de construcción.</p>
+        <a href="https://wa.me/51928599171" target="_blank" class="btn-servicio">Solicitar Cotización</a>
+      </div>
+    </div>
+
+    <div class="servicio-full">
+      <img src="https://aerolaser.es/wp-content/uploads/2025/12/Generated-Image-December-02-2025-11_01AM.jpeg">
+      <div class="overlay"></div>
+      <div class="servicio-contenido">
+        <h3>Movimiento de Tierras</h3>
+        <p>Preparación, nivelación y excavación profesional para todo tipo de obra.</p>
+        <a href="https://wa.me/51928599171" target="_blank" class="btn-servicio">Solicitar Cotización</a>
+      </div>
+    </div>
+    <div class="servicio-full">
+      <img src="https://webklat.s3.amazonaws.com/wp-content/uploads/2021/11/09185300/Foto-PC200-CE-web.jpg">
+      <div class="overlay"></div>
+      <div class="servicio-contenido">
+        <h3>Excavadora</h3>
+        <p>Preparación, nivelación y excavación profesional para todo tipo de obra.</p>
+        <a href="https://wa.me/51928599171" target="_blank" class="btn-servicio">Solicitar Cotización</a>
+      </div>
+    </div>
+    <div class="servicio-full">
+      <img src="https://1.bp.blogspot.com/-QaN5PYGzMiE/W6U5rQyBV0I/AAAAAAAAA7Y/uhtWsvOwX_4uCcs0whdq-wf8Xmir-zQ6gCLcBGAs/s640/TRACTOR-DE-ORUGAS-CAT-D6R.jpg">
+      <div class="overlay"></div>
+      <div class="servicio-contenido">
+        <h3>Tractor sobre oruga</h3>
+        <p>Preparación, nivelación y excavación profesional para todo tipo de obra.</p>
+        <a href="https://wa.me/51928599171" target="_blank" class="btn-servicio">Solicitar Cotización</a>
+      </div>
+    </div>
+    <div class="servicio-full">
+      <img src="https://www.cargoequip.es/img/volquete_h.jpg">
+      <div class="overlay"></div>
+      <div class="servicio-contenido">
+        <h3>volquetes</h3>
+        <p>Preparación, nivelación y excavación profesional para todo tipo de obra.</p>
+        <a href="https://wa.me/51928599171" target="_blank" class="btn-servicio">Solicitar Cotización</a>
+      </div>
+    </div>
+    <div class="servicio-full">
+      <img src="cargador.jpg">
+      <div class="overlay"></div>
+      <div class="servicio-contenido">
+        <h3>Cargador Frontal</h3>
+        <p>Preparación, nivelación y excavación profesional para todo tipo de obra.</p>
+        <a href="https://wa.me/51928599171" target="_blank" class="btn-servicio">Solicitar Cotización</a>
+      </div>
+    </div>
+    <div class="servicio-full">
+      <img src="https://transarielsur.com/wp-content/uploads/2022/12/cama-baja_transarielsur.jpg">
+      <div class="overlay"></div>
+      <div class="servicio-contenido">
+        <h3>Cama Baja</h3>
+        <p>Preparación, nivelación y excavación profesional para todo tipo de obra.</p>
+        <a href="https://wa.me/51928599171" target="_blank" class="btn-servicio">Solicitar Cotización</a>
+      </div>
+    </div>
+    <div class="servicio-full">
+      <img src="https://www.atlascopco.com/content/dam/atlas-copco/construction-technique/portable-energy/pictures/for_web_only_ape/square-images/products-air/XAS-BoX-square.png/jcr:content/renditions/cq5dam.web.1200.628.png">
+      <div class="overlay"></div>
+      <div class="servicio-contenido">
+        <h3>Comprensora-Atlas</h3>
+        <p>Preparación, nivelación y excavación profesional para todo tipo de obra.</p>
+        <a href="https://wa.me/51928599171" target="_blank" class="btn-servicio">Solicitar Cotización</a>
+      </div>
+    </div>
+    
+
+  </section>
+<!-- ===== OBRAS ===== -->
+<section id="obras" class="section">
+  <h2 style="font-size:40px; color:#1f2b38;">Nuestras Obras</h2>
+  <p style="margin-bottom:40px; font-size:18px;">
+    Proyectos ejecutados en diferentes zonas de Huánuco.
+  </p>
+
+  <div class="galeria-grid">
+
+    <div class="galeria-card">
+      <img src="obra1.jpg">
+      <div class="galeria-overlay">
+        <h3>Construcción Urbana</h3>
+        <p>Obra ejecutada en zona residencial.</p>
+      </div>
+    </div>
+
+    <div class="galeria-card">
+      <img src="obra2.jpg">
+      <div class="galeria-overlay">
+        <h3>Proyecto Rural</h3>
+        <p>Movimiento de tierras en zona rural.</p>
+      </div>
+    </div>
+
+    <div class="galeria-card">
+      <img src="obra3.jpg">
+      <div class="galeria-overlay">
+        <h3>Excavación Profunda</h3>
+        <p>Preparación para cimentación.</p>
+      </div>
+    </div>
+    
+    <div class="galeria-card">
+      <img src="obra3.jpg">
+      <div class="galeria-overlay">
+        <h3>Excavación Profunda</h3>
+        <p>Preparación para cimentación.</p>
+      </div>
+    </div>
+    
+    <div class="galeria-card">
+      <img src="obra3.jpg">
+      <div class="galeria-overlay">
+        <h3>Excavación Profunda</h3>
+        <p>Preparación para cimentación.</p>
+      </div>
+    </div>
+    
+    <div class="galeria-card">
+      <img src="obra3.jpg">
+      <div class="galeria-overlay">
+        <h3>Excavación Profunda</h3>
+        <p>Preparación para cimentación.</p>
+      </div>
+    </div>
+    
+    <div class="galeria-card">
+      <img src="obra3.jpg">
+      <div class="galeria-overlay">
+        <h3>Excavación Profunda</h3>
+        <p>Preparación para cimentación.</p>
+      </div>
+    </div>
+    
+    <div class="galeria-card">
+      <img src="obra3.jpg">
+      <div class="galeria-overlay">
+        <h3>Excavación Profunda</h3>
+        <p>Preparación para cimentación.</p>
+      </div>
+    </div>
+    
+    <div class="galeria-card">
+      <img src="obra3.jpg">
+      <div class="galeria-overlay">
+        <h3>Excavación Profunda</h3>
+        <p>Preparación para cimentación.</p>
+      </div>
+    </div>
+
+  </div>
+  
+</section>
+
+
+
+  <section id="catalogo" class="section">
+  <h2 style="font-size:40px; color:#1f2b38;">Alquiler de Maquinaria Pesada</h2>
+  <p style="margin-bottom:40px; font-size:18px;">
+    Contamos con maquinaria moderna y operadores capacitados para todo tipo de proyectos.
+  </p>
+
+  <div class="maquinaria-grid">
+
+    <!-- Retroexcavadora -->
+    <div class="maquinaria-card">
+      <img src="imagen.jpg">
+      <div class="maquinaria-info">
+        <h3>Retroexcavadora</h3>
+        <p>Ideal para excavaciones, zanjas y trabajos urbanos.</p>
+        <a href="https://wa.me/51928599171" target="_blank" class="btn-maquinaria">
+          Cotizar Ahora
+        </a>
+      </div>
+    </div>
+    
+
+    <!-- Volquete -->
+    <div class="maquinaria-card">
+      <img src="volquete.jpg">
+      <div class="maquinaria-info">
+        <h3>Volquetes</h3>
+        <p>Capacidad 15m³ y 20m³ para transporte de agregados.</p>
+        <a href="https://wa.me/51928599171" target="_blank" class="btn-maquinaria">
+          Cotizar Ahora
+        </a>
+      </div>
+    </div>
+
+    <!-- Cargador Frontal -->
+    <div class="maquinaria-card">
+      <img src="https://renton.pe/wp-content/uploads/2021/08/cargadores-frontales.png">
+      <div class="maquinaria-info">
+        <h3>Cargador Frontal</h3>
+        <p>Perfecto para carga de material y movimiento de tierra.</p>
+        <a href="https://wa.me/51928599171" target="_blank" class="btn-maquinaria">
+          Cotizar Ahora
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== SUMINISTRO DE MATERIALES ===== -->
+<section id="suministro" class="section">
+  <h2 style="font-size:40px; color:#1f2b38;">Suministro de Materiales</h2>
+  <p style="margin-bottom:40px; font-size:18px;">
+    Venta y transporte de materiales de construcción.
+  </p>
+
+  <div class="materiales-grid">
+
+    <div class="material-card">
+  <img src="https://andujarynavarro.com/wp-content/uploads/2017/04/grava.png">
+  <div class="material-info">
+    <h3>Hormigón</h3>
+    <p>El hormigón es uno de los materiales más usados en la construcción por su bajo costo y alta resistencia.
+Se compone de cemento, agua, arena y grava.
+Es moldeable al inicio y muy resistente cuando endurece.
+Se utiliza en edificios, carreteras, puentes y otras obras de infraestructura..</p>
+  </div>
+</div>
+
+    <div class="material-card">
+  <img src="https://1.bp.blogspot.com/-sfDZuD5P3EQ/TluLeF6GdCI/AAAAAAAAB9I/zaFo-UIFStA/s1600/Arena+Gruesa.jpg">
+  <div class="material-info">
+    <h3>Arena Gruesa</h3>
+    <p>La arena gruesa es un material de construcción compuesto por partículas de mayor tamaño que la arena fina.
+Se utiliza principalmente en la elaboración de hormigón y mezclas para estructuras resistentes.
+Permite mejorar la estabilidad y resistencia del concreto.
+Es fundamental en obras como cimientos, losas y columnas..</p>
+  </div>
+</div>
+<div class="material-card">
+  <img src="https://www.ferbanz.com/wp-content/uploads/2019/12/IMG_7735-scaled.jpg">
+  <div class="material-info">
+    <h3>Arena Fina</h3>
+    <p>La arena fina es un material compuesto por partículas pequeñas y suaves.
+Se utiliza principalmente para trabajos de acabados y tarrajeo.
+Mejora la textura y uniformidad de las mezclas.
+Es ideal para revoques, enlucidos y asentado de ladrillos..</p>
+  </div>
+</div>
+<div class="material-card">
+  <img src="https://www.ferbanz.com/wp-content/uploads/2020/01/piedra-chancada-scaled.jpg">
+  <div class="material-info">
+    <h3>Piedra Chancada 1p""</h3>
+    <p>La piedra chancada de 1 pulgada es un agregado grueso obtenido de la trituración de roca.
+Se utiliza principalmente en la elaboración de hormigón estructural.
+Aporta mayor resistencia y estabilidad a las mezclas.
+Es ideal para columnas, vigas, losas y cimientos.</p>
+  </div>
+</div>
+
+    <div class="material-card">
+  <img src="https://canteracentro.com/assets/images/agregados/chancado34/3.jpg">
+  <div class="material-info">
+    <h3>Piedra Chancada 3/4"</h3>
+    <p>La piedra chancada de 3/4 de pulgada es un agregado grueso muy usado en construcción.
+Se emplea en la preparación de hormigón para estructuras y pisos.
+Mejora la resistencia y compactación del concreto.
+Es adecuada para losas, veredas, columnas y cimentaciones.</p>
+  </div>
+</div>
+
+   <div class="material-card">
+  <img src="https://canteracentro.com/assets/images/agregados/chancado12/4.jpg">
+  <div class="material-info">
+    <h3>Piedra Chancada 1/2"</h3>
+    <p>La piedra chancada de 1/2 pulgada es un agregado grueso de menor tamaño.
+Se utiliza en mezclas de concreto y trabajos que requieren mejor acabado.
+Facilita la compactación y distribución uniforme del material.
+Es ideal para losas delgadas, veredas y elementos estructurales ligeros.</p>
+  </div>
+</div>
+
+   <div class="material-card">
+  <img src="https://ferreteriacromat.pe/wp-content/uploads/2019/01/piedra-chancada-4-600x600.jpeg">
+  <div class="material-info">
+    <h3>Piedra Chancada 1/4"</h3>
+    <p>La piedra chancada de 1/4 pulgada es un agregado de tamaño pequeño.
+Se utiliza en mezclas finas y trabajos que requieren mayor precisión.
+Permite una mejor compactación y acabado superficial.
+Es ideal para contrapisos, veredas y elementos estructurales delgados.</p>
+  </div>
+</div>
+
+    <div class="material-card">
+  <img src="https://www.ferbanz.com/wp-content/uploads/2020/01/piedra-chancada-scaled.jpg">
+  <div class="material-info">
+    <h3>Agregado Confitillo</h3>
+    <p>El agregado confitillo es una piedra pequeña y redondeada utilizada en construcción.
+Se emplea en la elaboración de concreto ligero y trabajos de acabado.
+Mejora la compactación y facilita el mezclado del material.
+Es ideal para contrapisos, veredas y elementos no estructurales.</p>
+  </div>
+</div>
+
+   <div class="material-card">
+  <img src="https://cdn0.uncomo.com/es/posts/7/7/2/donde_comprar_piedras_de_rio_47277_1_orig.jpg">
+  <div class="material-info">
+    <h3>Piedra de Río </h3>
+    <p>La piedra de río es un agregado natural de forma redondeada y superficie lisa.
+Se utiliza en concreto simple, drenajes y trabajos decorativos.
+Facilita el mezclado por su forma uniforme.
+Es común en cimientos, muros y acabados paisajísticos.</p>
+  </div>
+</div>
+
+    <div class="material-card">
+  <img src="https://prefabricadoscalytec.com.pe/wp-content/uploads/2024/03/caja-registro-agua-.jpg">
+  <div class="material-info">
+    <h3>Caja de Registro de Agua</h3>
+    <p>La caja de registro de agua es una estructura que permite inspeccionar y controlar las conexiones de agua o desagüe.
+Facilita el mantenimiento y la detección de posibles fugas u obstrucciones.
+Generalmente se fabrica en concreto o PVC.
+Es fundamental en instalaciones sanitarias de viviendas y edificaciones.</p>
+  </div>
+</div>
+<div class="material-card">
+  <img src="https://mypsac.com/media/producto/i/11/11eafdb560b11146d281b16a7afc49ab9d_producto.png">
+  <div class="material-info">
+    <h3>Caja de Registro de Desagüe</h3>
+    <p>La caja de registro de desagüe es una estructura que permite inspeccionar y limpiar las tuberías de alcantarillado.
+Facilita el mantenimiento y la solución de obstrucciones.
+Se fabrica comúnmente en concreto o PVC resistente.
+Es esencial en sistemas sanitarios de viviendas y edificaciones.</p>
+  </div>
+</div>
+
+  <div class="material-card">
+  <img src="https://www.concrepal.com/wp-content/uploads/2021/11/POSTES-DE-CONCRETO11-scaled.jpg">
+  <div class="material-info">
+    <h3>Poste de Concreto para Cerco</h3>
+    <p>El poste de concreto para cerco es un elemento estructural utilizado para sostener cercas o mallas.
+Está fabricado con concreto reforzado para mayor resistencia y durabilidad.
+Soporta alambres, mallas metálicas o paneles prefabricados.
+Es ideal para delimitar terrenos, viviendas y áreas industriales.</p>
+  </div>
+</div>
+<div class="material-card">
+  <img src="https://prefac.com.pe/wp-content/uploads/2018/12/cerco-tipo-placa-producto-prefac-lima-peru-1.jpg">
+  <div class="material-info">
+    <h3>Cerco Perimétrico de Concreto</h3>
+    <p>El cerco perimétrico de concreto es una estructura utilizada para delimitar y proteger un terreno o propiedad.
+Está construido con concreto armado para mayor resistencia y seguridad.
+Ofrece durabilidad frente a condiciones climáticas y golpes.
+Es ideal para viviendas, industrias, colegios y terrenos agrícolas.</p>
+  </div>
+</div>
+
+
+</section>
+
+
+ <section id="galeria" class="section">
+  <h2 style="font-size:40px; color:#1f2b38;">Galería de Proyectos</h2>
+  <p style="margin-bottom:40px; font-size:18px;">
+    Nuestras máquinas trabajando en diferentes obras y proyectos en Huánuco.
+  </p>
+
+  <div class="galeria-grid">
+
+    <div class="galeria-card">
+      <img src="https://maquinariavial.com/wp-content/uploads/2019/09/Pala-cargadora-ZL50GN.jpg">
+      <div class="galeria-overlay">
+        <h3>Cargador Frontal</h3>
+        <p>Trabajo de carga de agregados en obra urbana.</p>
+      </div>
+    </div>
+
+    <div class="galeria-card">
+      <img src="https://img.freepik.com/fotos-premium/excavadora-cubo-levantado-al-atardecer-sitio-construccion_681147-24808.jpg?w=1060">
+      <div class="galeria-overlay">
+        <h3>Excavadora</h3>
+        <p>Excavación profunda para cimentación.</p>
+      </div>
+    </div>
+
+    <div class="galeria-card">
+      <img src="https://www.unicon.com.pe/wp-content/uploads/2019/04/161109DJI_0123.jpg">
+      <div class="galeria-overlay">
+        <h3>Transporte de Material</h3>
+        <p>Volquetes transportando arena y piedra.</p>
+      </div>
+    </div>
+
+    <div class="galeria-card">
+      <img src="https://img.freepik.com/fotos-premium/bulldozer-movimiento-tierra-sitio-construccion-maquinaria-pesada-empujando-pila-suelo-trabajo-excavacion_34950-38349.jpg">
+      <div class="galeria-overlay">
+        <h3>Movimiento de Tierras</h3>
+        <p>Nivelación de terreno para construcción.</p>
+      </div>
+    </div>
+
+    <div class="galeria-card">
+      <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/construction-1955851_1280.jpg">
+      <div class="galeria-overlay">
+        <h3>Obra en Proceso</h3>
+        <p>Preparación de terreno en proyecto rural.</p>
+      </div>
+    </div>
+
+    <div class="galeria-card">
+      <img src="retroexcabadora.jpg">
+      <div class="galeria-overlay">
+        <h3>Retroexcavadora</h3>
+        <p>Excavación de zanjas para tuberías.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== CONTACTO ===== -->
+<section id="contacto" class="section">
+  <div class="contacto-container">
+
+    <div class="contacto-info">
+      <h2>Contáctanos</h2>
+      <p>Estamos listos para atender tu proyecto. Escríbenos y cotiza hoy mismo.</p>
+
+      <div class="contacto-item">
+        📞 <strong>WhatsApp:</strong><br>
+        <a href="https://wa.me/51928599171" target="_blank">
+          +51 928599171
+        </a>
+      </div>
+
+      <div class="contacto-item">
+        📧 <strong>Email:</strong><br>
+        contacto@maquinaria.com
+      </div>
+
+      <div class="contacto-item">
+        📍 <strong>Ubicación:</strong><br>
+        Huánuco, Perú
+      </div>
+
+      <div class="redes-sociales">
+        <a href="https://www.facebook.com/" target="_blank" class="social facebook">
+          Facebook
+        </a>
+
+        <a href="https://www.instagram.com/" target="_blank" class="social instagram">
+          Instagram
+        </a>
+
+        <!-- TikTok corregido -->
+        <a href="https://www.tiktok.com/@empresaserpa" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="social tiktok">
+           TikTok Oficial
+        </a>
+      </div>
+    </div>
+
+    <div class="contacto-form">
+      <h3>Envíanos un Mensaje</h3>
+
+      <form onsubmit="enviarWhatsApp(event)">
+        <input type="text" id="nombre" placeholder="Tu Nombre" required>
+        <input type="email" id="email" placeholder="Tu Email" required>
+        <textarea id="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+        <button type="submit">Enviar por WhatsApp</button>
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SCRIPT WHATSAPP MEJORADO ===== -->
+<script>
+function enviarWhatsApp(event) {
+  event.preventDefault();
+
+  let nombre = document.getElementById("nombre").value;
+  let email = document.getElementById("email").value;
+  let mensaje = document.getElementById("mensaje").value;
+
+  let numero = "51928599171";
+
+  let texto = `Hola, soy ${nombre}
+Email: ${email}
+Mensaje: ${mensaje}`;
+
+  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(texto);
+
+  window.open(url, "_blank");
+}
+</script>
+
+
+
+  <a href="https://wa.me/51928599171" class="whatsapp-btn" target="_blank">💬</a>
+
+  <footer>
+    <p>&copy; 2026 EMPRESA SERPA. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+    mostrarSeccion('inicio');
+  </script>
+ 
+</body>
+</html>
